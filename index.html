@@ -75,10 +75,12 @@
 
 
 
+<meta name="description" content="这个人很懒，什么都没有留下。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="标题">
 <meta property="og:url" content="http://horizon7274.github.io/index.html">
 <meta property="og:site_name" content="标题">
+<meta property="og:description" content="这个人很懒，什么都没有留下。">
 <meta property="og:locale" content="zh_CN">
 <meta name="twitter:card" content="summary">
 
@@ -154,7 +156,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">副标题</p>
       
   </div>
 
@@ -294,47 +296,15 @@
 
       
         
-          
-            <p>Matlab中分号（;）表示语句结束，用于抑制和隐藏输出表达，在行结尾加分号（;），不显示运行结果。</p>
-<h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><p>Matlab中注释符号是百分号(%)，多行注释快捷键Ctrl+R，取消注释快捷键Ctrl+T</p>
-<h1 id="Matlab命令"><a href="#Matlab命令" class="headerlink" title="Matlab命令"></a>Matlab命令</h1><p>命令行窗口中输入clear可以清除工作区所有变量。<br>输入clc清除命令行窗口中所有文本。</p>
-<table>
-<tr><td>clc</td><td>清除命令行窗口中所有文本</td></tr>
-<tr><td>clear</td><td>清除工作区中所有变量</td></tr>
-</table>
-
-<p><code>clc</code>和<code>clear</code>放在代码开头部分可以实现清空的效果。</p>
-<h1 id="输入输出函数"><a href="#输入输出函数" class="headerlink" title="输入输出函数"></a>输入输出函数</h1><p><code>disp()</code>函数是Matlab中的输出函数，<code>disp()</code>函数后是否添加分号不影响输出，因为<code>disp()</code>函数本身就是输出函数。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">disp(&quot;hello world&quot;)</span><br></pre></td></tr></table></figure>
-<p><code>input()</code>是输入函数在代码末尾添加分号，会输出括号中的引号部分，赋值成功后不会输出<code>num</code>的值。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">num=input(&quot;请输入数字&quot;);</span><br></pre></td></tr></table></figure>
-<p>执行该语句时会先在命令行窗口输出括号中的引号部分，然后在命令行窗口中输入相对应的值，按下回车后赋值给<code>num</code>。如果末尾添加了分号，则不再在命令行窗口输出<code>num</code>的值，没有分号则在命令行窗口中输出<code>num</code>的值。</p>
-<h1 id="向量与矩阵"><a href="#向量与矩阵" class="headerlink" title="向量与矩阵"></a>向量与矩阵</h1><h2 id="向量"><a href="#向量" class="headerlink" title="向量"></a>向量</h2><p>行向量的元素间用逗号或空格隔开，两种写法效果相同。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a=[1,2,3]</span><br><span class="line">a=[1 2 3]</span><br></pre></td></tr></table></figure>
-<p>列向量的元素之间用分号隔开。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a=[1;2;3]</span><br></pre></td></tr></table></figure>
-<h1 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h1><p>在矩阵中，同行元素用空格或逗号分隔，不同行元素用分号分隔。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E=[1 2 3;4 5 6;7 8 9;10 11 12]</span><br><span class="line">E=[1,2,3;4,5,6;7,8,9;10,11,12]</span><br></pre></td></tr></table></figure>
-<h2 id="提取指定行或列的元素"><a href="#提取指定行或列的元素" class="headerlink" title="提取指定行或列的元素"></a>提取指定行或列的元素</h2><p><code>E(2,2)</code>是指提取出矩阵中第二行第二列的元素。括号中第一位代表行，第二位代表列。英文冒号（:）可以用来代表这一行（列）的全部元素。<br><code>E(2,:)</code>表示取第二行的全部元素。<br><code>E([1,3],:)</code>表示取第一行和第三行的全部元素。<br><code>E(1:3,:)</code>表示取第一行到第三行的全部元素。<br><code>E(2:2:4,:)</code>表示取第二行和第四行的全部元素。<br><code>E(2:end,:)</code>表示取第二行到最后一行的全部元素。<br><code>E(2:end-1,:)</code>表示取第二行到倒数第二行的全部元素。<br><code>E(:)</code>表示取矩阵的全部元素，按照列的顺序拼接，最终输出一个列向量。</p>
-<h1 id="Matlab合并字符串"><a href="#Matlab合并字符串" class="headerlink" title="Matlab合并字符串"></a>Matlab合并字符串</h1><p>使用strcat()函数合并。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strcat(str1,str2,...,strn)</span><br></pre></td></tr></table></figure>
-<p>strcat()函数内元素个数没有限制。</p>
-<p>向量法合并字符串。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&#x27;abc&#x27; &#x27;def&#x27;]</span><br></pre></td></tr></table></figure>
-<h1 id="数字转换为字符串"><a href="#数字转换为字符串" class="headerlink" title="数字转换为字符串"></a>数字转换为字符串</h1><p><code>num2str()</code>函数能够将数字转为字符串。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">num2str(num)</span><br></pre></td></tr></table></figure>
-<h1 id="求和函数"><a href="#求和函数" class="headerlink" title="求和函数"></a>求和函数</h1><p><code>sum()</code>函数是求和函数。<br>如果括号中是向量，无论是行向量还是列向量都是直接求和。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">E1=[7 8 9]</span><br><span class="line">sum(E1)</span><br><span class="line">E2=[7;8;9]</span><br><span class="line">sum(E2)</span><br></pre></td></tr></table></figure>
-<p>计算结果都为24。</p>
-<p>对矩阵求和时，有如下两种写法。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sum(E,1)</span><br><span class="line">sum(E,2)</span><br></pre></td></tr></table></figure>
-<p>括号中后半部分代表的是dim（维度）。按照第一行的写法，dim=1时，矩阵会按列求和，得到一个行向量；dim=2时，矩阵按行求和，得到一个列向量。dim值默认为1，因此<code>sum(E)</code>与<code>sum(E,1)</code>计算结果相同。</p>
-<p>利用<code>sum()</code>函数对整个矩阵求和可以用以下两种方法。</p>
-<p>先对矩阵按列求和得到行向量，再对行向量进行求和。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum(sum(E))</span><br></pre></td></tr></table></figure>
-<p><code>E(:)</code>能将矩阵中的所有元素按照列的顺序输出一个列向量。再用<code>sum()</code>函数对列向量进行求和。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum(E(:))</span><br></pre></td></tr></table></figure>
-          
+          <p>Matlab中分号（;）表示语句结束，用于抑制和隐藏输出表达，在行结尾加分号（;），不显示运行结果。</p>
+<h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><p>Matlab中注释符号是百分号(%)，多行注释快捷键Ctrl+R，取消注释快捷键Ctrl+T。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2022/07/16/%E5%88%9D%E8%AF%86Matlab/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
