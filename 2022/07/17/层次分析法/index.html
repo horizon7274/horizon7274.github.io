@@ -122,7 +122,7 @@
 
 
 
-  <title>标题</title>
+  <title>层次分析法 | 标题</title>
   
 
 
@@ -141,8 +141,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -215,9 +214,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -247,9 +246,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2022/07/17/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/" itemprop="url">层次分析法</a></h1>
+          <h1 class="post-title" itemprop="name headline">层次分析法</h1>
         
 
         <div class="post-meta">
@@ -297,9 +294,7 @@
       
 
       
-        
-          
-            <p>层次分析法时系统分析的工具之一，由美国运筹学教授Saaty于上世纪70年代中期提出。该方法将人的思维过程层次化、数量化，并用数学方法为分析、决策或预报提供定量依据。这是一种定量与定性相结合的方法。</p>
+        <p>层次分析法时系统分析的工具之一，由美国运筹学教授Saaty于上世纪70年代中期提出。该方法将人的思维过程层次化、数量化，并用数学方法为分析、决策或预报提供定量依据。这是一种定量与定性相结合的方法。</p>
 <h1 id="判断矩阵"><a href="#判断矩阵" class="headerlink" title="判断矩阵"></a>判断矩阵</h1><p>$a_{ij}$的意思是，与指标j相比，i的重要程度，当i=j时，两个指标相同，因此同等重要记为1。<br><br>$a_{ij}$&gt;0且满足$a_{ij}$×$a_{ji}$=1，我们称满足这一条件的矩阵为正互反矩阵，若正互反矩阵满足$a_{ij}$×$a_{jk}$=$a_{ik}$，则我们称其为一致矩阵。一致矩阵各行（列）之间成倍数关系。<br><br>在使用判断矩阵求权重之前，必须对其进行一致性检验。<br><br>一致性检验原理：检验我们构造的判断矩阵和一致矩阵是否有太大差别。<br><br>n阶正互反矩阵A为一致矩阵时当且仅当最大特征值$λ_{max}$=n，且当正互反矩阵A非一致时，一定满足$λ_{max}$&gt;n。</p>
 <h1 id="一致性检验"><a href="#一致性检验" class="headerlink" title="一致性检验"></a>一致性检验</h1><h2 id="第一步：计算一致性指标CI"><a href="#第一步：计算一致性指标CI" class="headerlink" title="第一步：计算一致性指标CI"></a>第一步：计算一致性指标CI</h2><p>$CI=\frac{λ_{max}-n}{n-1}$</p>
 <h2 id="第二步：查找对应的平均随机一致性指标RI"><a href="#第二步：查找对应的平均随机一致性指标RI" class="headerlink" title="第二步：查找对应的平均随机一致性指标RI"></a>第二步：查找对应的平均随机一致性指标RI</h2><p>实际运用中，n很少超过10，如果指标个数大于10则可考虑建立二级指标体系。<br>(1)平均随机一致性指标RI怎么计算来的?<br>RI的值是这样得到的，用随机方法构造500个样本矩阵:随机地从1~9及其倒数中抽取数字构造正互反矩阵，求得最大特征根的平均值$λ^{‘}<em>{max}$,并定义$RI=\frac{λ^{‘}</em>{max}-n}{n-1}$</p>
@@ -338,8 +333,6 @@
 <h1 id="层次分析法局限性"><a href="#层次分析法局限性" class="headerlink" title="层次分析法局限性"></a>层次分析法局限性</h1><p>决策层不能太多，太多的话n会很大，判断矩阵和一致矩阵差异可能会很大。平均随机一致性指标RI的表格中n最多是15。  </p>
 <p>在论文写作中，应该先对矩阵进行一致性检验，然后再计算权重，因为只有判断矩阵通过了一致性检验，其权重才是有意义的。只有非一致矩阵才需要一致性检验，如果判断矩阵本身就是一个一致矩阵则无需进行一致性检验。</p>
 
-          
-        
       
     </div>
     
@@ -356,135 +349,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://horizon7274.github.io/2022/07/16/%E5%88%9D%E8%AF%86Matlab/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="标题">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2022/07/16/%E5%88%9D%E8%AF%86Matlab/" itemprop="url">初识Matlab</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-07-16T15:12:45+08:00">2022-07-16</time>
+              <a href="/2022/07/16/%E5%88%9D%E8%AF%86Matlab/" rel="next" title="初识Matlab">
+                <i class="fa fa-chevron-left"></i> 初识Matlab
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>Matlab中分号（;）表示语句结束，用于抑制和隐藏输出表达，在行结尾加分号（;），不显示运行结果。</p>
-<h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><p>Matlab中注释符号是百分号(%)，多行注释快捷键Ctrl+R，取消注释快捷键Ctrl+T。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2022/07/16/%E5%88%9D%E8%AF%86Matlab/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -494,10 +380,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -505,6 +392,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -525,8 +416,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -568,6 +468,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E7%9F%A9%E9%98%B5"><span class="nav-number">1.</span> <span class="nav-text">判断矩阵</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E8%87%B4%E6%80%A7%E6%A3%80%E9%AA%8C"><span class="nav-number">2.</span> <span class="nav-text">一致性检验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E8%AE%A1%E7%AE%97%E4%B8%80%E8%87%B4%E6%80%A7%E6%8C%87%E6%A0%87CI"><span class="nav-number">2.1.</span> <span class="nav-text">第一步：计算一致性指标CI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E6%9F%A5%E6%89%BE%E5%AF%B9%E5%BA%94%E7%9A%84%E5%B9%B3%E5%9D%87%E9%9A%8F%E6%9C%BA%E4%B8%80%E8%87%B4%E6%80%A7%E6%8C%87%E6%A0%87RI"><span class="nav-number">2.2.</span> <span class="nav-text">第二步：查找对应的平均随机一致性指标RI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E8%AE%A1%E7%AE%97%E4%B8%80%E8%87%B4%E6%80%A7%E6%AF%94%E4%BE%8BCR"><span class="nav-number">2.3.</span> <span class="nav-text">第三步：计算一致性比例CR</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E8%87%B4%E7%9F%A9%E9%98%B5%E8%AE%A1%E7%AE%97%E6%9D%83%E9%87%8D"><span class="nav-number">3.</span> <span class="nav-text">一致矩阵计算权重</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E7%9F%A9%E9%98%B5%E8%AE%A1%E7%AE%97%E6%9D%83%E9%87%8D"><span class="nav-number">4.</span> <span class="nav-text">判断矩阵计算权重</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%9C%AF%E5%B9%B3%E5%9D%87%E6%B3%95%E6%B1%82%E6%9D%83%E9%87%8D"><span class="nav-number">4.1.</span> <span class="nav-text">算术平均法求权重</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%A0%E4%BD%95%E5%B9%B3%E5%9D%87%E6%B3%95%E6%B1%82%E6%9D%83%E9%87%8D"><span class="nav-number">4.2.</span> <span class="nav-text">几何平均法求权重</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E6%B3%95%E6%B1%82%E6%9D%83%E9%87%8D"><span class="nav-number">4.3.</span> <span class="nav-text">特征值法求权重</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95%E6%AD%A5%E9%AA%A4"><span class="nav-number">5.</span> <span class="nav-text">层次分析法步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95%E7%AC%AC%E4%B8%80%E6%AD%A5"><span class="nav-number">5.1.</span> <span class="nav-text">层次分析法第一步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95%E7%AC%AC%E4%BA%8C%E6%AD%A5"><span class="nav-number">5.2.</span> <span class="nav-text">层次分析法第二步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95%E7%AC%AC%E4%B8%89%E6%AD%A5"><span class="nav-number">5.3.</span> <span class="nav-text">层次分析法第三步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95%E7%AC%AC%E5%9B%9B%E6%AD%A5"><span class="nav-number">5.4.</span> <span class="nav-text">层次分析法第四步</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95%E5%B1%80%E9%99%90%E6%80%A7"><span class="nav-number">6.</span> <span class="nav-text">层次分析法局限性</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -699,6 +615,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.0"></script>
+
+
 
   
 
