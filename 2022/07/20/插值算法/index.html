@@ -122,7 +122,7 @@
 
 
 
-  <title>标题</title>
+  <title>插值算法 | 标题</title>
   
 
 
@@ -255,8 +255,7 @@ mjx-container[display="true"] + br {
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -339,9 +338,9 @@ mjx-container[display="true"] + br {
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -371,9 +370,7 @@ mjx-container[display="true"] + br {
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2022/07/20/%E6%8F%92%E5%80%BC%E7%AE%97%E6%B3%95/" itemprop="url">插值算法</a></h1>
+          <h1 class="post-title" itemprop="name headline">插值算法</h1>
         
 
         <div class="post-meta">
@@ -443,9 +440,7 @@ mjx-container[display="true"] + br {
       
 
       
-        
-          
-            <p>数模比赛中，常常需要根据已知的函数点进行数据、模型的处理和分析，而有时候现有的数据是极少的，不足以支撑分析的进行，这时就需要使用一些数学的方法，“模拟产生”一些新的但又比较靠谱的值来满足需求，这就是插值的作用。</p>
+        <p>数模比赛中，常常需要根据已知的函数点进行数据、模型的处理和分析，而有时候现有的数据是极少的，不足以支撑分析的进行，这时就需要使用一些数学的方法，“模拟产生”一些新的但又比较靠谱的值来满足需求，这就是插值的作用。</p>
 <h1 id="拉格朗日插值法"><a href="#拉格朗日插值法" class="headerlink" title="拉格朗日插值法"></a>拉格朗日插值法</h1><h1 id="龙格现象"><a href="#龙格现象" class="headerlink" title="龙格现象"></a>龙格现象</h1><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 演示龙格函数的插值情况</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">3</span>:<span class="number">2</span>:<span class="number">11</span></span><br><span class="line">x=<span class="built_in">linspace</span>(<span class="number">-1</span>,<span class="number">1</span>,<span class="built_in">i</span>);</span><br><span class="line">y=<span class="number">1.</span>/(<span class="number">1</span>+<span class="number">25</span>*x.^<span class="number">2</span>);</span><br><span class="line">p=polyfit(x,y,<span class="built_in">i</span><span class="number">-1</span>);</span><br><span class="line">xx=<span class="number">-1</span>:<span class="number">0.01</span>:<span class="number">1</span>;</span><br><span class="line">yy=polyval(p,xx);</span><br><span class="line"><span class="built_in">plot</span>(xx,yy,<span class="string">'b'</span>);</span><br><span class="line"><span class="built_in">hold</span> on;</span><br><span class="line">grid on;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"><span class="built_in">plot</span>(x,<span class="number">1.</span>/(<span class="number">1</span>+<span class="number">25</span>*x.^<span class="number">2</span>),<span class="string">'r'</span>);</span><br></pre></td></tr></table></figure>
 <p><img src="img/Runge%20phenomenon.png" alt="alt"></p>
 <p>图中红色的是真正的函数图形。插值次数越多，结果偏离越大。</p>
@@ -457,8 +452,6 @@ H(x_j)=y_j,\quad H^{'}(x_j)=m_j\qquad(j=0,1,\dotsc,n)</script><p>其余项为：
 <script type="math/tex; mode=display">
 R(x)=f(x)-H(x)=\frac{f^{(2n2)}(\xi)}{(2n+2)!}{\omega}_{2n+2}(x)</script><h1 id="分段三次埃尔米特插值"><a href="#分段三次埃尔米特插值" class="headerlink" title="分段三次埃尔米特插值"></a>分段三次埃尔米特插值</h1><p>直接使用Hermite插值得到的多项式次数较高，也存在着龙格现象，因此在实际应用中，往往使用分段三次Hermite插值多项式(PCHIP)。<br>Matlab有内置的函数：<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p=pchip(x,y,new_x)</span><br></pre></td></tr></table></figure><br><code>x</code>是已知的样本点的横坐标；<code>y</code>是已知的样本点的纵坐标；<code>new_x</code>是要插入处对应的横坐标。<br>例如：<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 分段三次埃尔米特插值</span></span><br><span class="line">x=-<span class="built_in">pi</span>:<span class="built_in">pi</span>;</span><br><span class="line">y=<span class="built_in">sin</span>(x);</span><br><span class="line">new_x=-<span class="built_in">pi</span>:<span class="number">0.1</span>:<span class="built_in">pi</span>;</span><br><span class="line">p1=pchip(x,y,new_x);</span><br><span class="line"><span class="built_in">figure</span>(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">plot</span>(x,y,<span class="string">'o'</span>,new_x,p1,<span class="string">'r-'</span>);</span><br></pre></td></tr></table></figure></p>
 <h1 id="n维插值"><a href="#n维插值" class="headerlink" title="n维插值"></a>n维插值</h1>
-          
-        
       
     </div>
     
@@ -473,302 +466,36 @@ R(x)=f(x)-H(x)=\frac{f^{(2n2)}(\xi)}{(2n+2)!}{\omega}_{2n+2}(x)</script><h1 id="
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://horizon7274.github.io/2022/07/19/TOPSIS%E4%BC%98%E5%8A%A3%E8%A7%A3%E8%B7%9D%E7%A6%BB%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="标题">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2022/07/19/TOPSIS%E4%BC%98%E5%8A%A3%E8%A7%A3%E8%B7%9D%E7%A6%BB%E6%B3%95/" itemprop="url">TOPSIS优劣解距离法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-07-19T00:02:09+08:00">2022-07-19</time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" itemprop="url" rel="index">
-                    <span itemprop="name">数学建模</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag"># 标签</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <p>TOPSIS法（Technique for Order Preference by Similarity to Ideal Solution），可翻译为逼近理想解排序法，国内常简称为优劣解距离法。TOPSIS法是一种常用的综合评价方法，能充分利用原始数据的信息，其结果能精确地反映各评价方案之间地差距。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2022/07/19/TOPSIS%E4%BC%98%E5%8A%A3%E8%A7%A3%E8%B7%9D%E7%A6%BB%E6%B3%95/#more" rel="contents">
-              Read more &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2022/07/19/TOPSIS%E4%BC%98%E5%8A%A3%E8%A7%A3%E8%B7%9D%E7%A6%BB%E6%B3%95/" rel="next" title="TOPSIS优劣解距离法">
+                <i class="fa fa-chevron-left"></i> TOPSIS优劣解距离法
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://horizon7274.github.io/2022/07/17/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="标题">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2022/07/17/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/" itemprop="url">层次分析法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-07-17T23:01:03+08:00">2022-07-17</time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" itemprop="url" rel="index">
-                    <span itemprop="name">数学建模</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>层次分析法是系统分析的工具之一，由美国运筹学教授Saaty于上世纪70年代中期提出。该方法将人的思维过程层次化、数量化，并用数学方法为分析、决策或预报提供定量依据。这是一种定量与定性相结合的方法。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2022/07/17/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -778,132 +505,11 @@ R(x)=f(x)-H(x)=\frac{f^{(2n2)}(\xi)}{(2n+2)!}{\omega}_{2n+2}(x)</script><h1 id="
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://horizon7274.github.io/2022/07/16/%E5%88%9D%E8%AF%86Matlab/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="标题">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2022/07/16/%E5%88%9D%E8%AF%86Matlab/" itemprop="url">初识Matlab</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-07-16T15:12:45+08:00">2022-07-16</time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Matlab笔记，仍在更新ing…<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2022/07/16/%E5%88%9D%E8%AF%86Matlab/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -911,6 +517,10 @@ R(x)=f(x)-H(x)=\frac{f^{(2n2)}(\xi)}{(2n+2)!}{\omega}_{2n+2}(x)</script><h1 id="
 
 
           
+
+  
+
+
 
         </div>
         
@@ -931,8 +541,17 @@ R(x)=f(x)-H(x)=\frac{f^{(2n2)}(\xi)}{(2n+2)!}{\omega}_{2n+2}(x)</script><h1 id="
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -992,6 +611,22 @@ R(x)=f(x)-H(x)=\frac{f^{(2n2)}(\xi)}{(2n+2)!}{\omega}_{2n+2}(x)</script><h1 id="
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%8F%92%E5%80%BC%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">拉格朗日插值法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%BE%99%E6%A0%BC%E7%8E%B0%E8%B1%A1"><span class="nav-number">2.</span> <span class="nav-text">龙格现象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%83%E5%B0%94%E7%B1%B3%E7%89%B9%E6%8F%92%E5%80%BC%E5%8E%9F%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">埃尔米特插值原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E6%AE%B5%E4%B8%89%E6%AC%A1%E5%9F%83%E5%B0%94%E7%B1%B3%E7%89%B9%E6%8F%92%E5%80%BC"><span class="nav-number">4.</span> <span class="nav-text">分段三次埃尔米特插值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#n%E7%BB%B4%E6%8F%92%E5%80%BC"><span class="nav-number">5.</span> <span class="nav-text">n维插值</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1130,6 +765,10 @@ R(x)=f(x)-H(x)=\frac{f^{(2n2)}(\xi)}{(2n+2)!}{\omega}_{2n+2}(x)</script><h1 id="
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.0"></script>
+
+
 
   
 

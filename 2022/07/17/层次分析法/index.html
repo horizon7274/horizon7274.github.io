@@ -75,15 +75,15 @@
 
 
 
-<meta name="description" content="TOPSIS法（Technique for Order Preference by Similarity to Ideal Solution），可翻译为逼近理想解排序法，国内常简称为优劣解距离法。TOPSIS法是一种常用的综合评价方法，能充分利用原始数据的信息，其结果能精确地反映各评价方案之间地差距。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="TOPSIS优劣解距离法">
-<meta property="og:url" content="http://horizon7274.github.io/2022/07/19/TOPSIS%E4%BC%98%E5%8A%A3%E8%A7%A3%E8%B7%9D%E7%A6%BB%E6%B3%95/index.html">
+<meta name="description" content="这个人很懒，什么都没有留下。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://horizon7274.github.io/categories/index.html">
 <meta property="og:site_name" content="标题">
-<meta property="og:description" content="TOPSIS法（Technique for Order Preference by Similarity to Ideal Solution），可翻译为逼近理想解排序法，国内常简称为优劣解距离法。TOPSIS法是一种常用的综合评价方法，能充分利用原始数据的信息，其结果能精确地反映各评价方案之间地差距。">
+<meta property="og:description" content="这个人很懒，什么都没有留下。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-07-18T16:02:09.173Z">
-<meta property="article:modified_time" content="2022-07-18T16:03:34.677Z">
+<meta property="article:published_time" content="2022-07-20T11:41:16.000Z">
+<meta property="article:modified_time" content="2022-07-20T11:41:16.657Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -116,7 +116,7 @@
 
 
 
-  <link rel="canonical" href="http://horizon7274.github.io/2022/07/19/TOPSIS优劣解距离法/"/>
+  <link rel="canonical" href="http://horizon7274.github.io/categories/"/>
 
 
 
@@ -247,6 +247,8 @@ mjx-container[display="true"] + br {
 </style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  
+
 
   
   
@@ -290,7 +292,7 @@ mjx-container[display="true"] + br {
       
         
         <li class="menu-item menu-item-home">
-          <a href="/%20" rel="section">
+          <a href="/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -299,8 +301,18 @@ mjx-container[display="true"] + br {
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
-          <a href="/archives/%20" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -379,6 +391,28 @@ mjx-container[display="true"] + br {
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" itemprop="url" rel="index">
+                    <span itemprop="name">数学建模</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -441,7 +475,7 @@ mjx-container[display="true"] + br {
 <p>2、4、6、8分别为以上的中间值。</p>
 <h2 id="层次分析法第三步"><a href="#层次分析法第三步" class="headerlink" title="层次分析法第三步"></a>层次分析法第三步</h2><p>由判断矩阵计算被比较元素对于该准则的相对权重，并进行一致性检验（检验通过权重才能用）。在比赛中建议三种方法（算术平均法，几何平均法，特征值法）都使用。</p>
 <h2 id="层次分析法第四步"><a href="#层次分析法第四步" class="headerlink" title="层次分析法第四步"></a>层次分析法第四步</h2><p>计算各层元素对系统目标的合成权重，并进行排序。</p>
-<h1 id="层次分析法局限性"><a href="#层次分析法局限性" class="headerlink" title="层次分析法局限性"></a>层次分析法局限性</h1><p>决策层不能太多，太多的话n会很大，判断矩阵和一致矩阵差异可能会很大。平均随机一致性指标RI的表格中n最多是15。  </p>
+<h1 id="层次分析法局限性"><a href="#层次分析法局限性" class="headerlink" title="层次分析法局限性"></a>层次分析法局限性</h1><p>决策层（方案层）不能太多，太多的话n会很大，判断矩阵和一致矩阵差异可能会很大。平均随机一致性指标RI的表格中n最多是15。  </p>
 <p>在论文写作中，应该先对矩阵进行一致性检验，然后再计算权重，因为只有判断矩阵通过了一致性检验，其权重才是有意义的。只有非一致矩阵才需要一致性检验，如果判断矩阵本身就是一个一致矩阵则无需进行一致性检验。</p>
 
       
@@ -457,6 +491,12 @@ mjx-container[display="true"] + br {
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag"># 标签</a>
+          
+        </div>
       
 
       
@@ -554,16 +594,34 @@ mjx-container[display="true"] + br {
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/%20%7C%7C%20archive">
+                <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
             
 
           </nav>
@@ -684,6 +742,8 @@ mjx-container[display="true"] + br {
 
 
 
+  
+
 
 
 
@@ -707,6 +767,11 @@ mjx-container[display="true"] + br {
   
   
     <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
@@ -820,3 +885,5 @@ mjx-container[display="true"] + br {
 
 </body>
 </html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
