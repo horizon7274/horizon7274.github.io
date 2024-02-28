@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="TOPSIS法（Technique for Order Preference by Similarity to Ideal Solution），可翻译为逼近理想解排序法，国内常简称为优劣解距离法。TOPSIS法是一种常用的综合评价方法，能充分利用原始数据的信息，其结果能精确地反映各评价方案之间地差距。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TOPSIS优劣解距离法">
+<meta property="og:url" content="http://example.com/2024/02/28/TOPSIS%E4%BC%98%E5%8A%A3%E8%A7%A3%E8%B7%9D%E7%A6%BB%E6%B3%95/index.html">
+<meta property="og:site_name" content="horizon7274">
+<meta property="og:description" content="TOPSIS法（Technique for Order Preference by Similarity to Ideal Solution），可翻译为逼近理想解排序法，国内常简称为优劣解距离法。TOPSIS法是一种常用的综合评价方法，能充分利用原始数据的信息，其结果能精确地反映各评价方案之间地差距。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-02-28T12:34:19.871Z">
+<meta property="article:modified_time" content="2024-02-28T12:36:19.484Z">
+<meta property="article:author" content="horizon7274">
+<meta property="article:tag" content="标签">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2024/02/28/TOPSIS%E4%BC%98%E5%8A%A3%E8%A7%A3%E8%B7%9D%E7%A6%BB%E6%B3%95/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/02/28/TOPSIS%E4%BC%98%E5%8A%A3%E8%A7%A3%E8%B7%9D%E7%A6%BB%E6%B3%95/","path":"2024/02/28/TOPSIS优劣解距离法/","title":"TOPSIS优劣解距离法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>TOPSIS优劣解距离法 | horizon7274</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">horizon7274</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">时时勤拂拭，勿使惹尘埃</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E5%B0%86%E5%8E%9F%E5%A7%8B%E7%9F%A9%E9%98%B5%E6%AD%A3%E5%90%91%E5%8C%96"><span class="nav-number">1.</span> <span class="nav-text">第一步：将原始矩阵正向化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%81%E5%B0%8F%E5%9E%8B%E6%8C%87%E6%A0%87%E8%BD%AC%E6%8D%A2%E4%B8%BA%E6%9E%81%E5%A4%A7%E5%9E%8B%E6%8C%87%E6%A0%87"><span class="nav-number">1.1.</span> <span class="nav-text">极小型指标转换为极大型指标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E9%97%B4%E5%9E%8B%E6%8C%87%E6%A0%87%E8%BD%AC%E6%8D%A2%E4%B8%BA%E6%9E%81%E5%A4%A7%E5%9E%8B%E6%8C%87%E6%A0%87"><span class="nav-number">1.2.</span> <span class="nav-text">中间型指标转换为极大型指标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BA%E9%97%B4%E5%9E%8B%E6%8C%87%E6%A0%87%E8%BD%AC%E6%8D%A2%E4%B8%BA%E6%9E%81%E5%A4%A7%E5%9E%8B%E6%8C%87%E6%A0%87"><span class="nav-number">1.3.</span> <span class="nav-text">区间型指标转换为极大型指标</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E6%AD%A3%E5%90%91%E5%8C%96%E7%9F%A9%E9%98%B5%E6%A0%87%E5%87%86%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">第二步：正向化矩阵标准化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E8%AE%A1%E7%AE%97%E5%BE%97%E5%88%86%E5%B9%B6%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">第三步：计算得分并归一化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%83%E4%B9%A0"><span class="nav-number">4.</span> <span class="nav-text">练习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E8%AF%84%E4%BB%B7%E4%B8%8B%E8%A1%A8%E4%B8%AD20%E6%9D%A1%E6%B2%B3%E6%B5%81%E7%9A%84%E6%B0%B4%E8%B4%A8%E6%83%85%E5%86%B5"><span class="nav-number">4.1.</span> <span class="nav-text">题目：评价下表中20条河流的水质情况</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">horizon7274</p>
+  <div class="site-description" itemprop="description">>.<</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/02/28/TOPSIS%E4%BC%98%E5%8A%A3%E8%A7%A3%E8%B7%9D%E7%A6%BB%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="horizon7274">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="horizon7274">
+      <meta itemprop="description" content=">.<">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="TOPSIS优劣解距离法 | horizon7274">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          TOPSIS优劣解距离法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-02-28 20:34:19 / 修改时间：20:36:19" itemprop="dateCreated datePublished" datetime="2024-02-28T20:34:19+08:00">2024-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" itemprop="url" rel="index"><span itemprop="name">数学建模</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>TOPSIS法（Technique for Order Preference by Similarity to Ideal Solution），可翻译为逼近理想解排序法，国内常简称为优劣解距离法。TOPSIS法是一种常用的综合评价方法，能充分利用原始数据的信息，其结果能精确地反映各评价方案之间地差距。<br><span id="more"></span></p>
+<h1 id="第一步：将原始矩阵正向化"><a href="#第一步：将原始矩阵正向化" class="headerlink" title="第一步：将原始矩阵正向化"></a>第一步：将原始矩阵正向化</h1><p>最常见的四种指标：</p>
+<table>
+<tr><td>指标名称</td><td>指标特点</td><td>例子</td></tr>
+<tr><td>极大型（效益性）指标</td><td>越大（多）越好</td><td>成绩、GDP增速、企业利润</td></tr>
+<tr><td>极小型（成本型）指标</td><td>越小（少）越好</td><td>费用、坏品率、污染程度</td></tr>
+<tr><td>中间型指标</td><td>越接近某个值越好</td><td>pH值</td></tr>
+<tr><td>区间型指标</td><td>落在某个区间最好</td><td>体温、水中植物性营养物量</td></tr>
+</table>
+
+<p>所谓的将原始矩阵正向化，就是要将所有的指标类型统一转化为极大型指标（转换的函数形式不唯一）。</p>
+<h2 id="极小型指标转换为极大型指标"><a href="#极小型指标转换为极大型指标" class="headerlink" title="极小型指标转换为极大型指标"></a>极小型指标转换为极大型指标</h2><p>公式：</p>
+<script type="math/tex; mode=display">
+max-x</script><p>如果所有元素均是正整数，也可用$\frac{1}{x}$。</p>
+<h2 id="中间型指标转换为极大型指标"><a href="#中间型指标转换为极大型指标" class="headerlink" title="中间型指标转换为极大型指标"></a>中间型指标转换为极大型指标</h2><p>中间型指标：指标值不太大也不太小，而是接近某一特定值。<br>{$x_i$}是一组中间型指标序列，且最佳数值为$x_{best}$，那么正向化的公式如下：</p>
+<script type="math/tex; mode=display">
+M=max\{|x_{i}-x_{best}|\}</script><script type="math/tex; mode=display">
+\tilde{x_{i}}=1-\frac{|x_{i}-x_{best}|}{M}</script><p>例：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">pH值（转换前）</th>
+<th style="text-align:center">pH值（转换后）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">$1-\frac{\vert 6-7\vert}{2}=\frac{1}{2}$</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">$1-\frac{\vert 7-7\vert}{2}=1$</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">$1-\frac{\vert 8-7\vert}{2}=\frac{1}{2}$</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">$1-\frac{\vert 9-7\vert}{2}=0$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>确定$x_{best}的值$：</p>
+<script type="math/tex; mode=display">
+x_{best}=7</script><p>计算$M$：</p>
+<script type="math/tex; mode=display">
+M=max\{|6-7|,|7-7|,|8-7|,|9-7|\}=2</script><h2 id="区间型指标转换为极大型指标"><a href="#区间型指标转换为极大型指标" class="headerlink" title="区间型指标转换为极大型指标"></a>区间型指标转换为极大型指标</h2><p>指标值落在某个区间内最好，例如人的体温在36°~37°这个区间比较好。<br>$\{x_i\}$是一组中间型指标序列，且最佳的区间为$[a,b]$，那么正向化的公式如下：</p>
+<script type="math/tex; mode=display">
+M=max\{a-min\{x_{i}\},max\{x_{i}-b\}\}</script><script type="math/tex; mode=display">
+\tilde{x_{i}}=\begin{cases}
+    1-\frac{a-x}{M},&{x<a}\\
+    1,&a\leqslant x\leqslant b\\
+    1-\frac{x-b}{M},&x>b
+\end{cases}</script><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">体温（转换前）</th>
+<th style="text-align:center">体温（转换后）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">35.2</td>
+<td style="text-align:center">0.4286</td>
+</tr>
+<tr>
+<td style="text-align:center">35.8</td>
+<td style="text-align:center">0.8571</td>
+</tr>
+<tr>
+<td style="text-align:center">36.6</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">37.1</td>
+<td style="text-align:center">0.9286</td>
+</tr>
+<tr>
+<td style="text-align:center">37.8</td>
+<td style="text-align:center">0.4286</td>
+</tr>
+<tr>
+<td style="text-align:center">38.4</td>
+<td style="text-align:center">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>由人的体温在36°~37°可得$a=36$，$b=37$。</p>
+<p>由公式得：</p>
+<script type="math/tex; mode=display">
+M=max\{36-35.2,38.4-37\}=1.4</script><h1 id="第二步：正向化矩阵标准化"><a href="#第二步：正向化矩阵标准化" class="headerlink" title="第二步：正向化矩阵标准化"></a>第二步：正向化矩阵标准化</h1><p>标准化的目的是消除不同指标量纲的影响。</p>
+<p>为了消去不同指标量纲的影响，需要对已经正向化的矩阵进行标准化处理。</p>
+<p>假设有n个要评价的对象，m个评价指标（已经正向化）构成的正向化矩阵如下：</p>
+<script type="math/tex; mode=display">
+X=\begin{bmatrix}
+    x_{11}&x_{12}&{\cdots}&x_{1m}\\
+    x_{21}&x_{22}&{\cdots}&x_{2m}\\
+    {\vdots}&{\vdots}&{\ddots}&{\vdots}\\
+    x_{n1}&x_{n2}&{\cdots}&x_{nm}
+\end{bmatrix}</script><p>那么，对其标准化的矩阵记为Z，Z中的每一个元素：</p>
+<script type="math/tex; mode=display">
+z_{ij}=\frac{x_{ij}}{\sqrt{\sum \limits_{i=1}^{n}x_{ij}^{2}}}</script><p>（每一个元素/根号下其所在列的元素的平方和）</p>
+<h1 id="第三步：计算得分并归一化"><a href="#第三步：计算得分并归一化" class="headerlink" title="第三步：计算得分并归一化"></a>第三步：计算得分并归一化</h1><p>假设有n个要评价的对象，m个评价指标的标准化矩阵。</p>
+<script type="math/tex; mode=display">
+Z=\begin{bmatrix}
+    z_{11}&z_{12}&{\cdots}&z_{1m}\\
+    z_{21}&z_{22}&{\cdots}&z_{2m}\\
+    {\vdots}&{\vdots}&{\ddots}&{\vdots}\\
+    z_{n1}&z_{n2}&{\cdots}&z_{nm}
+\end{bmatrix}</script><p>定义最大值$Z^{+}$：</p>
+<script type="math/tex; mode=display">
+Z^{+}=(Z^{+}_{1},Z^{+}_{2},{\cdots},Z^{+}_{m})\\
+=(max\{z_{11},z_{21},{\cdots},z_{n1}\},max\{z_{12},z_{22},{\cdots},z_{n2}\},{\cdots},max\{z_{1m},z_{2m},{\cdots},z_{nm}\})</script><p>定义最小值$Z^{-}$：</p>
+<script type="math/tex; mode=display">
+Z^{-}=(Z^{-}_{1},Z^{-}_{2},{\cdots},Z^{-}_{m})\\
+=(max\{z_{11},z_{21},{\cdots},z_{n1}\},max\{z_{12},z_{22},{\cdots},z_{n2}\},{\cdots},max\{z_{1m},z_{2m},{\cdots},z_{nm}\})</script><p>定义第$i(i=1,2,{\cdots},n)$个评价对象与最大值的距离</p>
+<script type="math/tex; mode=display">
+D^{+}_{i}=\sqrt{\sum \limits_{j=1}^{m}(Z^{+}_{j}-z_{ij})^{2}}</script><p>定义第c个评价对象与最小值的距离</p>
+<script type="math/tex; mode=display">
+D^{-}_{i}=\sqrt{\sum \limits_{j=1}^{m}(Z^{-}_{j}-z_{ij})^{2}}</script><p>那么，我们可以计算得出第$i(i=1,2,{\cdots},n)$个评价对象未归一化的得分：</p>
+<script type="math/tex; mode=display">
+S_{i}=\frac{D^{-}_{i}}{D^{+}_{i}+D^{-}_{i}}</script><p>很明显$0\leqslant S_{i}\leqslant1$，且$S_{i}$越大$D^{+}_{i}$，即越接近最大值。</p>
+<h1 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h1><h2 id="题目：评价下表中20条河流的水质情况"><a href="#题目：评价下表中20条河流的水质情况" class="headerlink" title="题目：评价下表中20条河流的水质情况"></a>题目：评价下表中20条河流的水质情况</h2><p>注：含氧量越高越好；PH值越接近7越好；细菌总数越少越好;植物性营养物量介于10~20之间最佳，超过20或低于10均不好。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">河流</th>
+<th style="text-align:center">含氧量(ppm)</th>
+<th style="text-align:center">PH值A</th>
+<th style="text-align:center">细菌总数(个/mL)</th>
+<th style="text-align:center">植物性营养物量(ppm)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">A</td>
+<td style="text-align:center">4.69</td>
+<td style="text-align:center">6.59</td>
+<td style="text-align:center">51</td>
+<td style="text-align:center">11.94</td>
+</tr>
+<tr>
+<td style="text-align:center">B</td>
+<td style="text-align:center">2.03</td>
+<td style="text-align:center">7.86</td>
+<td style="text-align:center">19</td>
+<td style="text-align:center">6.46</td>
+</tr>
+<tr>
+<td style="text-align:center">C</td>
+<td style="text-align:center">9.11</td>
+<td style="text-align:center">6.31</td>
+<td style="text-align:center">46</td>
+<td style="text-align:center">8.91</td>
+</tr>
+<tr>
+<td style="text-align:center">D</td>
+<td style="text-align:center">8.61</td>
+<td style="text-align:center">7.05</td>
+<td style="text-align:center">46</td>
+<td style="text-align:center">26.43</td>
+</tr>
+<tr>
+<td style="text-align:center">E</td>
+<td style="text-align:center">7.13</td>
+<td style="text-align:center">6.5</td>
+<td style="text-align:center">50</td>
+<td style="text-align:center">23.57</td>
+</tr>
+<tr>
+<td style="text-align:center">F</td>
+<td style="text-align:center">2.39</td>
+<td style="text-align:center">6.77</td>
+<td style="text-align:center">38</td>
+<td style="text-align:center">24.62</td>
+</tr>
+<tr>
+<td style="text-align:center">G</td>
+<td style="text-align:center">7.69</td>
+<td style="text-align:center">6.79</td>
+<td style="text-align:center">38</td>
+<td style="text-align:center">6.01</td>
+</tr>
+<tr>
+<td style="text-align:center">H</td>
+<td style="text-align:center">9.3</td>
+<td style="text-align:center">6.81</td>
+<td style="text-align:center">27</td>
+<td style="text-align:center">31.57</td>
+</tr>
+<tr>
+<td style="text-align:center">I</td>
+<td style="text-align:center">5.45</td>
+<td style="text-align:center">7.62</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">18.46</td>
+</tr>
+<tr>
+<td style="text-align:center">J</td>
+<td style="text-align:center">6.19</td>
+<td style="text-align:center">7.27</td>
+<td style="text-align:center">17</td>
+<td style="text-align:center">7.51</td>
+</tr>
+<tr>
+<td style="text-align:center">K</td>
+<td style="text-align:center">7.93</td>
+<td style="text-align:center">7.53</td>
+<td style="text-align:center">9</td>
+<td style="text-align:center">6.52</td>
+</tr>
+<tr>
+<td style="text-align:center">L</td>
+<td style="text-align:center">4.4</td>
+<td style="text-align:center">7.28</td>
+<td style="text-align:center">17</td>
+<td style="text-align:center">25.3</td>
+</tr>
+<tr>
+<td style="text-align:center">M</td>
+<td style="text-align:center">7.46</td>
+<td style="text-align:center">8.24</td>
+<td style="text-align:center">23</td>
+<td style="text-align:center">14.42</td>
+</tr>
+<tr>
+<td style="text-align:center">N</td>
+<td style="text-align:center">2.01</td>
+<td style="text-align:center">5.55</td>
+<td style="text-align:center">47</td>
+<td style="text-align:center">26.31</td>
+</tr>
+<tr>
+<td style="text-align:center">O</td>
+<td style="text-align:center">2.04</td>
+<td style="text-align:center">6.4</td>
+<td style="text-align:center">23</td>
+<td style="text-align:center">17.91</td>
+</tr>
+<tr>
+<td style="text-align:center">P</td>
+<td style="text-align:center">7.73</td>
+<td style="text-align:center">6.14</td>
+<td style="text-align:center">52</td>
+<td style="text-align:center">15.72</td>
+</tr>
+<tr>
+<td style="text-align:center">Q</td>
+<td style="text-align:center">6.35</td>
+<td style="text-align:center">7.58</td>
+<td style="text-align:center">25</td>
+<td style="text-align:center">29.46</td>
+</tr>
+<tr>
+<td style="text-align:center">R</td>
+<td style="text-align:center">8.29</td>
+<td style="text-align:center">8.41</td>
+<td style="text-align:center">39</td>
+<td style="text-align:center">12.02</td>
+</tr>
+<tr>
+<td style="text-align:center">S</td>
+<td style="text-align:center">3.54</td>
+<td style="text-align:center">7.27</td>
+<td style="text-align:center">54</td>
+<td style="text-align:center">3.16</td>
+</tr>
+<tr>
+<td style="text-align:center">T</td>
+<td style="text-align:center">7.44</td>
+<td style="text-align:center">6.26</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">28.41</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>注：数据是我随手编的，仅用于讲解相应的算法，可能有不合理之处，请见谅。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag"># 标签</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/02/28/hello-world/" rel="prev" title="Hello World">
+                  <i class="fa fa-angle-left"></i> Hello World
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/02/28/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/" rel="next" title="层次分析法">
+                  层次分析法 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">horizon7274</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
